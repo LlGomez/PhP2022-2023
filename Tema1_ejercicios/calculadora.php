@@ -2,7 +2,7 @@
 
 class calculadora {
 
-    public function __construct($numero, $n, $k)
+    public function __construct($numero, $k, $n)
     {
         $this->numero = $numero;
         $this->n = $n;
@@ -21,17 +21,29 @@ class calculadora {
     public function coeficienteBinomial($n, $k){
         $n = $this->n;
         $k = $this->k;
-        for($binomial1 = 1; $n > 1; $n--){
-            $binomial1 = $binomial1*$n;
-            
-            for($binomial2 = 1; $k > 1; $k--){
-               $binomial2 = $binomial2*$k;     
-            }
+        $factorial = $this->factorial;
+        
+         
+
+
+
+        /*for($factorialn = 1; $n > 1; $n--){
+            $factorialn = $factorialn*$n;
+        
         }
+
+        for($factorialk = 1; $k > 1; $k--){
+            $factorialk = $factorialk*$k;     
+         }
+         
+         */
+
     }
 
 
-    
+    public function convierteBinarioDecimal($cadenaBits){
+
+    }
     
 
 }
