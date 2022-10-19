@@ -1,4 +1,9 @@
+<?php
 
+require ("calculadora.php");
+
+$calculadora = new calculadora($factorial, $k, $n, $cadenaBits, $array);
+?>
 <!DOCTYPE html>
 <html>
 
@@ -11,13 +16,9 @@
     <h3>Factorial</h3>
 <?php
 
-require ("calculadora.php");
+
 
 $factorial = 4;
-
-$calculadora = new calculadora($factorial, $k, $n);
-
-
 
 echo $numero->calculadora();
 
@@ -27,6 +28,16 @@ echo $numero->calculadora();
 
 <h3>Coeficiente Binomial</h3>
 
+
+
+
+<h3>Binario a decimal</h3>
+<?php
+
+
+echo $cadenaBits->calculadora();
+
+?>
 </body>
 
 </head>
