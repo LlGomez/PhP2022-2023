@@ -1,100 +1,93 @@
 <?php
 
-class calculadora {
+class Calculadora{
+            
+            function obtenerFactorial($numero){
 
-    public function __construct($numero, $k, $n, $cadenaBits, $array)
-    {
-        $this->numero = $numero;
-        $this->n = $n;
-        $this->k = $k;
-        $this->cadenaBits = $cadenaBits;
-        $this->array = $array;
-    }
+                $resultado = 1;
+                
+                if($numero == 0){
+                    return 1;
+                } elseif($numero > 0){
+                    
+                    while($numero > 0){
+                        $resultado = $resultado * $numero;
+                        $numero--;
+                    }
+                    return $resultado;
+                } else{
+                    throw new Exception("Introduzca un número mayor o igual a 0");
+                }
 
-    public function obtieneFactorial(){
-        $numero = $this->numero;
-        for($factorial = 1; $numero > 1; $numero--){
-            $factorial = $factorial*$numero;
+            }
+
+            function coeficienteBinominial($n, $k){
+
+                $resultado = ($this->obtenerFactorial($n)) / ($this->obtenerFactorial($k) * $this->obtenerFactorial($n - $k));
+
+                return $resultado;
+            }
+
+            function convierteBinarioDecimal($binario){
+                
+                $decimal = bindec($binario);
+                return $decimal;
+                
+            }
+
+            function sumaNumerosPares($arrayNumeros){
+
+                $resultado = 0;
+
+                for ($i=0; $i < count($arrayNumeros); $i++) { 
+                    if ($arrayNumeros[$i] % 2 == 0) {
+                        $resultado = $resultado + $arrayNumeros[$i];
+                    }
+                }
+                return $resultado;
+            }
+
+            function esPalindromo($palabra1, $palabra2){
+
+                //$palabra1Dividida = explode("", $palabra1);
+                $palabra1Dividida = str_split($palabra1);
+
+                $palabra1Invertida = array_reverse($palabra1Dividida);
+
+                $palabra1InvertidaString = "";
+
+                for ($i=0; $i < count($palabra1Invertida); $i++) { 
+                    $palabra1InvertidaString = $palabra1InvertidaString . $palabra1Invertida[$i];
+                }
+
+                if ($palabra1InvertidaString == $palabra2) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            }
+
+            function sumaMatrices($matriz1, $matriz2){
+                // las matrices van con dos arrays bidimensionales
+
+                for ($i=0; $i < count($matriz1); $i++) { 
+                    
+                    for ($j=0; $j < count($matriz1); $j++) { 
+                        $matriz1[$i] = $matriz1[$i] + $matriz1[$j];
+
+                        
+                    }
+
+                    echo $matriz1[$i];
+
+                }
+
+
+            }
+
+
+
         }
-        return $factorial;
-    }
 
-
-    public function coeficienteBinomial($n, $k){
-        $n = $this->n;
-        $k = $this->k;
-        $factorial = $this->factorial;
-        
-        for ($n = 0; $n <= $factorial; $n++)
-        {
-            $binom = 1;
-            for ($k = 0; $k <= $n; $k++)
-            {
-
-         if($n != 0 && $k != 0){
-            $binom = $binom * ($n - $k +1) / $n;
-            echo $binom;
-         }
-
-        }
-    }
-
-
-
-        /*for($factorialn = 1; $n > 1; $n--){
-            $factorialn = $factorialn*$n;
-        
-        }
-
-        for($factorialk = 1; $k > 1; $k--){
-            $factorialk = $factorialk*$k;     
-         }
-         
-         */
-
-    }
-
-
-    public function convierteBinarioDecimal($cadenaBits){
-        $cadenaBits = $this->cadenaBits;
-        
-        $cadenaBits = "1001";
-    
-        for($i=1; $i<0; $i++){
-            $potencias = 2**$i;
-            echo $potencias;
-        }
-
-    
-
-        /*for($i=0;$i<strlen($cadenaBits); $i++){
-            echo $cadenaBits;
-        }
-
-        */
-    
-        //echo bindec($cadenaBits);
-    }
-    
-    
-
-    public function sumaNumerosPares($array) {
-        
-        $array = array(1, 3, 4);
-        $suma = 0;
-  for ($i = 0; $i < $array; $i++) {
-        if($array[$i] % 2 == 0){
-          $suma = $suma + $array[$i];   
-        }
-           
-  }
-   return $suma;
-}
-
-public function esPalindromo($cadena){
-
-}
-
-}
-
-?>
+        ?>
