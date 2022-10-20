@@ -15,9 +15,7 @@ class Calculadora{
                         $numero--;
                     }
                     return $resultado;
-                } else{
-                    throw new Exception("Introduzca un número mayor o igual a 0");
-                }
+                } 
 
             }
 
@@ -49,7 +47,7 @@ class Calculadora{
 
             function esPalindromo($palabra1, $palabra2){
 
-                //$palabra1Dividida = explode("", $palabra1);
+                
                 $palabra1Dividida = str_split($palabra1);
 
                 $palabra1Invertida = array_reverse($palabra1Dividida);
@@ -69,17 +67,26 @@ class Calculadora{
             }
 
             function sumaMatrices($matriz1, $matriz2){
-                // las matrices van con dos arrays bidimensionales
+                
+                $matriz1 = array(
+                    array(2, 0, 1),
+                    array(3, 0, 0),
+                    array(5, 1, 1)
+                );
+                $matriz2 = array(
+                    array(1, 0, 1),
+                    array(1, 2, 1),
+                    array(1, 1, 0)
+                );
+                $suma = array();
 
                 for ($i=0; $i < count($matriz1); $i++) { 
-                    
+                    $suma[] = array();
                     for ($j=0; $j < count($matriz1); $j++) { 
-                        $matriz1[$i] = $matriz1[$i] + $matriz1[$j];
-
-                        
+                        $suma[$i][] = $matriz1[$i][$j] + $matriz2[$i][$j];
                     }
 
-                    echo $matriz1[$i];
+                    echo $suma;
 
                 }
 
