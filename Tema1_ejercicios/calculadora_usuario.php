@@ -13,7 +13,7 @@
 
 
 
-require "calculadora.php";
+require_once "calculadora.php";
     
 $numero = 4;
 $n = 4;
@@ -22,7 +22,7 @@ $k = 2;
 $calculadora = new Calculadora;
 
 if (isset($numero)){
-    echo "El factorial de $numero es " , $calculadora->obtenerFactorial($numero);
+    echo $calculadora->obtenerFactorial($numero);
 } 
 
 
@@ -32,7 +32,7 @@ if (isset($numero)){
 <h3>Coeficiente Binomial</h3>
 
 <?php
-echo "El coeficiente binominial de $n y $k es " . $calculadora->coeficienteBinominial($n, $k);
+echo $calculadora->coeficienteBinominial($n, $k);
 
 ?>
 
@@ -41,7 +41,7 @@ echo "El coeficiente binominial de $n y $k es " . $calculadora->coeficienteBinom
 <?php
 
 $binario = 1001;
-echo $binario . " en decimal es " . $calculadora->convierteBinarioDecimal($binario);
+echo $calculadora->convierteBinarioDecimal($binario);
 
 ?>
 
@@ -53,7 +53,7 @@ echo $binario . " en decimal es " . $calculadora->convierteBinarioDecimal($binar
 
 $arrayNumeros = array(1,3,4,6,7);
 
-echo "La suma de los números pares del array es: " . $calculadora->sumaNumerosPares($arrayNumeros);
+echo $calculadora->sumaNumerosPares($arrayNumeros);
 ?>
 
 
@@ -65,8 +65,10 @@ $palabra1 = "amor";
 $palabra2 = "roma";
 
 if ($calculadora->esPalindromo($palabra1, $palabra2) == 1) {
-    echo $palabra1 . " y " . $palabra2 . " son palindromos";
-} 
+    echo "Son palindromos";
+} else{
+    echo "No son palindromos";
+}
 
 ?>
 
