@@ -77,15 +77,16 @@ if ($calculadora->esPalindromo($palabra1, $palabra2) == 1) {
 <?php
 
 $matriz1 = array(
+    array(3, 2, 0),
     array(2, 0, 1),
-    array(3, 0, 0),
-    array(5, 1, 1)
+    array(4, 0, 0)
 );
 $matriz2 = array(
-    array(1, 0, 1),
-    array(1, 2, 1),
-    array(1, 1, 0)
+    array(5, 5, 3),
+    array(0, 2, 0),
+    array(5, 9, 3)
 );
+
 $suma = array();
 
 echo $calculadora->sumaMatrices($matriz1, $matriz2);
