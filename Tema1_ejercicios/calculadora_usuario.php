@@ -51,7 +51,7 @@ echo $binario . " en decimal es " . $calculadora->convierteBinarioDecimal($binar
 <?php
 
 
-$arrayNumeros = array(1,2,3,4,5,6,7,8,9,10);
+$arrayNumeros = array(1,3,4,6,7);
 
 echo "La suma de los números pares del array es: " . $calculadora->sumaNumerosPares($arrayNumeros);
 ?>
@@ -66,9 +66,7 @@ $palabra2 = "roma";
 
 if ($calculadora->esPalindromo($palabra1, $palabra2) == 1) {
     echo $palabra1 . " y " . $palabra2 . " son palindromos";
-} else {
-    echo $palabra1 . " y " . $palabra2 . " no son palindromos";
-}
+} 
 
 ?>
 
@@ -76,8 +74,19 @@ if ($calculadora->esPalindromo($palabra1, $palabra2) == 1) {
 
 <?php
 
+$matriz1 = array(
+    array(2, 0, 1),
+    array(3, 0, 0),
+    array(5, 1, 1)
+);
+$matriz2 = array(
+    array(1, 0, 1),
+    array(1, 2, 1),
+    array(1, 1, 0)
+);
+$suma = array();
 
-echo $calculadora->sumaMatrices($suma);
+echo $calculadora->sumaMatrices($matriz1, $matriz2);
 
 
 ?>

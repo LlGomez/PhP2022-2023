@@ -2,7 +2,7 @@
 
 class Calculadora{
             
-            function obtenerFactorial($numero){
+           public function obtenerFactorial($numero){
 
                 $resultado = 1;
                 
@@ -19,21 +19,21 @@ class Calculadora{
 
             }
 
-            function coeficienteBinominial($n, $k){
+           public function coeficienteBinominial($n, $k){
 
                 $resultado = ($this->obtenerFactorial($n)) / ($this->obtenerFactorial($k) * $this->obtenerFactorial($n - $k));
 
                 return $resultado;
             }
 
-            function convierteBinarioDecimal($binario){
+           public function convierteBinarioDecimal($binario){
                 
                 $decimal = bindec($binario);
                 return $decimal;
                 
             }
 
-            function sumaNumerosPares($arrayNumeros){
+           public function sumaNumerosPares($arrayNumeros){
 
                 $resultado = 0;
 
@@ -45,7 +45,7 @@ class Calculadora{
                 return $resultado;
             }
 
-            function esPalindromo($palabra1, $palabra2){
+           public function esPalindromo($palabra1, $palabra2){
 
                 
                 $palabra1Dividida = str_split($palabra1);
@@ -66,19 +66,9 @@ class Calculadora{
 
             }
 
-            function sumaMatrices($matriz1, $matriz2){
+          public function sumaMatrices($matriz1, $matriz2){
                 
-                $matriz1 = array(
-                    array(2, 0, 1),
-                    array(3, 0, 0),
-                    array(5, 1, 1)
-                );
-                $matriz2 = array(
-                    array(1, 0, 1),
-                    array(1, 2, 1),
-                    array(1, 1, 0)
-                );
-                $suma = array();
+               
 
                 for ($i=0; $i < count($matriz1); $i++) { 
                     $suma[] = array();
@@ -86,7 +76,7 @@ class Calculadora{
                         $suma[$i][] = $matriz1[$i][$j] + $matriz2[$i][$j];
                     }
 
-                    echo $suma;
+                    return $suma;
 
                 }
 
