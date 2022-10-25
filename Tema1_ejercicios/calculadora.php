@@ -1,90 +1,97 @@
 <?php
+ini_set('display_errors', 'On');
+ini_set('html_errors', 0);
 
-class Calculadora{
-            
-           public function obtenerFactorial($numero){
+class Calculadora
+{
 
-                $resultado = 1;
-                
-                if($numero == 0){
-                    return 1;
-                } elseif($numero > 0){
-                    
-                    while($numero > 0){
-                        $resultado = $resultado * $numero;
-                        $numero--;
-                    }
-                    return $resultado;
-                } 
+    function __construct()
+    {
 
+    }
+
+    function factorial($x)
+    {
+        if ($x == 0)
+        {
+            return 1;
+        }
+        elseif ($x>0)
+        {
+            $resultado = 1;
+            while ($x>0)
+            {
+                $resultado = $resultado * $x;
+                $x = $x - 1; 
             }
+            return $resultado;
+        }
+        else
+        {
+            throw new Exception("X ha de se mayor o igual a 0");
+        }
+    }
 
-           public function coeficienteBinominial($n, $k){
+    function coeficienteBinomial($n, $k)
+    {
+        if (($n-$k) == 0)
+            throw new Exception("Error n - k = 0");
 
-                $resultado = ($this->obtenerFactorial($n)) / ($this->obtenerFactorial($k) * $this->obtenerFactorial($n - $k));
+        if ($k==0)
+            throw new Exception("k=0");
 
-                return $resultado;
-            }
+        $factorial_n_menos_k = $this->factorial($n-$k);
 
-           public function convierteBinarioDecimal($binario){
-                
-                $decimal = bindec($binario);
-                return $decimal;
-                
-            }
+        return $this->factorial($n) / ($this->factorial($k)*$factorial_n_menos_k) ;
+    }
+    //0123
+    //1000
+    function convierteBinarioDecimal($cadenaBits)
+    {
+        $longitudCadena = strlen($cadenaBits);
 
-           public function sumaNumerosPares($arrayNumeros){
+        $indiceCadena = $longitudCadena-1;
 
-                $resultado = 0;
+        $exponente = 0;
+        $resultado = 0;
 
-                for ($i=0; $i < count($arrayNumeros); $i++) { 
-                    if ($arrayNumeros[$i] % 2 == 0) {
-                        $resultado = $resultado + $arrayNumeros[$i];
-                    }
-                }
-                return $resultado;
-            }
-
-           public function esPalindromo($palabra1, $palabra2){
-
-                
-                $palabra1Dividida = str_split($palabra1);
-
-                $palabra1Invertida = array_reverse($palabra1Dividida);
-
-                $palabra1InvertidaString = "";
-
-                for ($i=0; $i < count($palabra1Invertida); $i++) { 
-                    $palabra1InvertidaString = $palabra1InvertidaString . $palabra1Invertida[$i];
-                }
-
-                if ($palabra1InvertidaString == $palabra2) {
-                    return true;
-                } else {
-                    return false;
-                }
-
-            }
-
-          public function sumaMatrices($matriz1, $matriz2){
-                
-               
-
-                for ($i=0; $i < count($matriz1); $i++) { 
-                    $suma[] = array();
-                    for ($j=0; $j < count($matriz1); $j++) { 
-                        $suma[$i][] = $matriz1[$i][$j] + $matriz2[$i][$j];
-                    }
-
-                    return $suma;
-
-                }
-
-
-            }
-
-
-
+        while ($indiceCadena>=0)
+        {
+            $valorPosicion = $cadenaBits[$indiceCadena];
+            $resultado = $resultado + ( (2**$exponente)*($valorPosicion)  );
+            $exponente++;
+            $indiceCadena--;
         }
 
-        ?>
+        return $resultado;
+
+    }
+
+    function esPalindromo($primeraCadena, $segundaCadena)
+    {
+        return $primeraCadena == strrev($segundaCadena);
+    }
+
+    function esCapicua($cadena)
+    {
+        return $cadena == strrev($cadena);
+    }
+
+    function sumaMatricesCuadradas($primeraMatriz, $segundaMatriz)
+    {
+        $matrizAuxiliar = $primeraMatriz;
+
+        $max_filas = count($primeraMatriz);
+
+        for ($fila = 0; $fila < $max_filas; $fila++)
+        {
+            for ($columna = 0; $columna < $max_filas; $columna++)
+            {
+                $matrizAuxiliar[$fila][$columna] = $matrizAuxiliar[$fila][$columna] + $segundaMatriz[$fila][$columna];  
+            }
+        }
+
+        return $matrizAuxiliar;
+
+    }
+}
