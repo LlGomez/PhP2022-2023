@@ -21,6 +21,7 @@ $cuadrado1 = array(
 
 function analizarCuadradoMagico(){
 
+    
 
 }
 
@@ -32,15 +33,7 @@ function pintarCuadradoMagico(){
         array(8,1,6)
     );
 
-    echo '<table border="1">';
-        foreach ( $cuadrado1 as $r ) {
-        echo '<tr>';
-        foreach ( $r as $v ) {
-                echo '<td>'.$v.'</td>';
-        }
-        echo '</tr>';
-}
-echo '</table>';
+    
 }
 
 
