@@ -32,8 +32,16 @@ function pintarCuadradoMagico(){
         array(3,5,7),
         array(8,1,6)
     );
+echo "<table>";
+    foreach($cuadrado1 as $cuadrado){
+        echo "<tr><td>" . $cuadrado[0] . "</td><td>" . $cuadrado[1] . "</td><td>" . $cuadrado[2] . "</td></tr>";
+    }
+echo "</table>";
+
+
 
     
+
 }
 
 
