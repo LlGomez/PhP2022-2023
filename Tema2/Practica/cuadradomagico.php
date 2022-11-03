@@ -8,24 +8,28 @@
 </head>
 <body>
 <?php
+
+
     
     ini_set('display_errors', 'On');
     ini_set('html_errors', 0);
 
 
     echo ("<h1>Cuadrado Mágico</h1>");
-$cuadrado1 = array(
-    array(4,9,2),
-    array(3,5,7),
-    array(8,1,6)
-);
+
+    
+
 
 
 function analizarCuadradoMagico($cuadrado1){
     $primera_diagonal = 0;
     $segunda_diagonal = 0;
     
-
+    $cuadrado1 = array(
+        array(4,9,2),
+        array(3,5,7),
+        array(8,1,6)
+    ); 
 
 for ($i=0; $i < count($cuadrado1); $i++) { 
 
