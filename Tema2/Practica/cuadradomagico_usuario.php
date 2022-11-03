@@ -28,6 +28,16 @@ function testcuadrado2(){
 
 }
 
+function testcuadrado3(){
+    
+    $cuadradotest3 = array(
+        array(4,5,8,2).
+        array(2,1,3,6),
+        array(4,2,2,1),
+        array(5,6,2,1)    
+    );
+}
+
 
 function test(){
 
